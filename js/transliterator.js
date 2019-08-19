@@ -130,7 +130,7 @@ multipleKeys(['ዓ','ዐ','ኣ','አ'], 'a', letters);
 letters['ኡ','ዑ'] = 'ou';
 letters['ኢ','ዒ'] = 'eī';
 letters['ዔ','ኤ'] = 'á';
-letters['እ','ዕ'] = 'e';
+multipleKeys(['እ','ዕ','ኧ'], 'e', letters);
 letters['ኦ','ዖ'] = 'o';
 
 // "ከ"
