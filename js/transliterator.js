@@ -13,7 +13,7 @@ multipleKeys(['ሂ','ሒ','ኂ'], 'hī', letters);
 multipleKeys(['ሄ','ሔ','ኄ'],'hé', letters);
 multipleKeys(['ህ','ሕ','ኅ'], 'hi', letters);
 multipleKeys(['ሆ','ሖ','ኆ'], 'ho', letters);
-letters['ሗ','ኋ'] = 'hua';  /// letter forgotten
+multipleKeys(['ሗ','ኋ'], 'hua', letters);  
 
 // "ለ"
 letters['ለ'] = 'le';
@@ -36,14 +36,14 @@ letters['ሞ'] = 'mo';
 letters['ሟ'] = 'mua';
 
 // "ሠ" ፥ "ሰ"
-letters['ሠ','ሰ'] = 'se';
-letters['ሡ','ሱ'] = 'su';
-letters['ሢ','ሲ'] = 'sī';
-letters['ሣ','ሳ'] = 'sa';
-letters['ሤ','ሴ'] = 'sé';
-letters['ሥ','ስ'] = 'si';
-letters['ሦ','ሶ'] = 'so';
-letters['ሧ','ሷ'] = 'sua';
+multipleKeys(['ሠ','ሰ'], 'se', letters);
+multipleKeys(['ሡ','ሱ'], 'su', letters);
+multipleKeys(['ሢ','ሲ'], 'sī', letters);
+multipleKeys(['ሣ','ሳ'], 'sa', letters);
+multipleKeys(['ሤ','ሴ'], 'sé', letters);
+multipleKeys(['ሥ','ስ'], 'si', letters);
+multipleKeys(['ሦ','ሶ'], 'so', letters);
+multipleKeys(['ሧ','ሷ'], 'sua', letters);
 
 // "ረ"
 letters['ረ'] = 're';
@@ -127,11 +127,11 @@ letters['ኟ'] = 'gn´ua';
 
 // "አ" ፥ "ዐ"
 multipleKeys(['ዓ','ዐ','ኣ','አ'], 'a', letters);
-letters['ኡ','ዑ'] = 'ou';
-letters['ኢ','ዒ'] = 'eī';
-letters['ዔ','ኤ'] = 'á';
-multipleKeys(['እ','ዕ','ኧ'], 'e', letters);
-letters['ኦ','ዖ'] = 'o';
+multipleKeys(['ዑ','ኡ'], 'ou', letters);
+multipleKeys(['ኢ','ዒ'], 'eī', letters);
+multipleKeys(['ዔ','ኤ'], 'á', letters);
+multipleKeys(['እ','ዕ'], 'e', letters);
+multipleKeys(['ኦ','ዖ'], 'o', letters);
 
 // "ከ"
 letters['ከ'] = 'ke';
@@ -262,13 +262,13 @@ letters['ፖ'] = 'po';
 letters['ፗ'] = 'pua';
 
 // "ፀ" ፥ "ጸ"
-letters['ፀ','ጸ'] = 'ts´e';
-letters['ፁ','ጹ'] = 'ts´u';
-letters['ፂ','ጺ'] = 'ts´ī';
-letters['ፃ','ጻ'] = 'ts´a';
-letters['ፄ','ጼ'] = 'ts´é';
-letters['ፅ','ጽ'] = 'ts´i';
-letters['ፆ','ጾ'] = 'ts´o';
+multipleKeys(['ፀ','ጸ'], 'ts´e', letters);
+multipleKeys(['ፁ','ጹ'], 'ts´u', letters);
+multipleKeys(['ፂ','ጺ'], 'ts´ī', letters);
+multipleKeys(['ፃ','ጻ'], 'ts´a', letters);
+multipleKeys(['ፄ','ጼ'], 'ts´é', letters);
+multipleKeys(['ፅ','ጽ'], 'ts´i', letters);
+multipleKeys(['ፆ','ጾ'], 'ts´o', letters);
 letters['ጿ'] = 'ts´ua';
 
 // "ጰ"
@@ -293,11 +293,14 @@ letters['ቯ'] = 'vua';
 
 function transliterate(){
     var text = document.getElementById("inputText").value;
+    var resultText = "";
     document.getElementById('result').innerHTML = "";
     text.split('').map(function (char) { 
-        document.getElementById('result').innerHTML += letters[char] || char ; 
+        resultText += letters[char] || char ;
+        if(char == ' ' && resultText[resultText.length - 2] == 'i'){
+            resultText = resultText.replace(resultText[resultText.length-2], "");    
+        }
       });
-    
-    
+      document.getElementById('result').innerHTML = resultText;
   }
   
