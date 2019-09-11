@@ -10,10 +10,10 @@ This repo demonstrates the transliteration of Amharic language using English alp
 # Usage
 - Include the script transliterator.js on your page:
 
-        ```<script src="./js/transliterator.js"></script>```
+        <script src="./js/transliterator.js"></script>
 - Insert any amharic word you want to transliterate using the transliterate() function:
 
-        ```var result = transliterate(<Amharic word>```);
+        var result = transliterate(<Amharic word>);
 - The function returns the result of the transliteration.
 
 # Example
